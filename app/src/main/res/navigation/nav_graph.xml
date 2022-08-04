@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/zodiacoFragment">
+
+    <fragment
+        android:id="@+id/zodiacoFragment"
+        android:name="com.example.lapitonisamarisa.ui.view.HoroscopeFragment"
+        android:label="@string/horoscope"
+        tools:layout="@layout/fragment_zodiaco" >
+        <action
+            android:id="@+id/action_zodiacoFragment_to_zodiacResultFragment2"
+            app:destination="@id/zodiacResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/zodiacResultFragment"
+        android:name="com.example.lapitonisamarisa.ui.view.HoroscopeResultFragment"
+        android:label="fragment_zodiac_result"
+        tools:layout="@layout/fragment_zodiac_result" >
+        <argument
+            android:name="horoscope"
+            app:argType="string" />
+        <argument
+            android:name="sign"
+            app:argType="string" />
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
+</navigation>
