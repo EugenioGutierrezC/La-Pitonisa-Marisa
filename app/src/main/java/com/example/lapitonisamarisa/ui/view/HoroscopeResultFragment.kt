@@ -19,7 +19,7 @@ class HoroscopeResultFragment : Fragment() {
 
     private val args: HoroscopeResultFragmentArgs by navArgs()
 
-
+    //TODO This fragment will initialize the api call.
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

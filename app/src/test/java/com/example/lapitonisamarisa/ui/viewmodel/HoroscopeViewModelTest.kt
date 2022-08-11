@@ -47,7 +47,7 @@ class HoroscopeViewModelTest {
 
         horoscopeViewModel.getHoroscope("Leo")
 
-        //TODO Search how to test Event wrapper
+        //TODO Search how to test Event wrapper.
         //assert(horoscopeViewModel.horoscopeLiveData.value == Event<HoroscopeAPIResponseModel("Leo", "2022-08-03", "Bla Bla")>)
     }
 }

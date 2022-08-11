@@ -1,3 +1,5 @@
 package com.example.lapitonisamarisa.data.model
 
-data class HoroscopeSignsModel(val url: String, val signName: String)
+import java.net.URL
+
+data class HoroscopeSignsModel(val url: URL, val signName: String)

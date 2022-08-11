@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.lapitonisamarisa.data.model.HoroscopeAPIResponseModel
 import com.example.lapitonisamarisa.domain.GetHoroscopeUseCase
 import com.example.lapitonisamarisa.utils.Event
+import com.example.lapitonisamarisa.utils.Exceptions.ApiException
 import com.example.lapitonisamarisa.utils.Utils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -18,13 +19,22 @@ class HoroscopeViewModel @Inject constructor(
 
     val horoscopeLiveData = MutableLiveData<Event<HoroscopeAPIResponseModel>>()
     val isLoading = MutableLiveData<Boolean>()
+    val popUpLaunch = MutableLiveData<Event<String>>()
 
+    //TODO Relocate this fuction in HoroscopeResultViewModel.
     fun getHoroscope(sign: String) {
         viewModelScope.launch {
-            isLoading.postValue(true)
-            val horoscope = getHoroscopeUseCase(Utils.descapitalizeFirstChar(sign))
-            horoscopeLiveData.value = Event(horoscope)
-            isLoading.postValue(false)
+            try {
+                isLoading.postValue(true)
+                val horoscope = getHoroscopeUseCase(Utils.descapitalizeFirstChar(sign))
+                horoscopeLiveData.value = Event(horoscope)
+                isLoading.postValue(false)
+            } catch (e: ApiException) {
+                isLoading.postValue(false)
+                popUpLaunch.postValue(Event(e.toString()))
+                e.printStackTrace()
+            }
+            //TODO catch here when internet is not available.
         }
     }
 }

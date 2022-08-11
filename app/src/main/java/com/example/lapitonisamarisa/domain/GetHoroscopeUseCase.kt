@@ -15,7 +15,7 @@ class GetHoroscopeUseCase @Inject constructor(
         return if (!horoscope.horoscope.isBlank()) {
             horoscope
         } else {
-            //TODO Get random data from database to fill the horoscope. Meanwhile return empty horoscope
+            //TODO Refactor this part, now we will launch exception instead of showing fake data.
             HoroscopeAPIResponseModel("Ophiuchus",Utils.currentDate(), "Always gonna be nope")
         }
     }

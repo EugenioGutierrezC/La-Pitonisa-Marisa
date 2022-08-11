@@ -14,6 +14,8 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
+    //TODO We must create interceptor to know if internet is available
+
     @Singleton
     @Provides
     fun provideRetrofit(): Retrofit {
