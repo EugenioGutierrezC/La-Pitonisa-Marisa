@@ -3,7 +3,6 @@ package com.example.lapitonisamarisa.ui.viewmodel
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.lapitonisamarisa.data.model.HoroscopeAPIResponseModel
 import com.example.lapitonisamarisa.domain.GetHoroscopeUseCase
-import com.example.lapitonisamarisa.utils.Event
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
@@ -18,11 +17,11 @@ import org.junit.Rule
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class HoroscopeViewModelTest {
+class HoroscopeResultViewModelTest {
     @RelaxedMockK
     private lateinit var getHoroscopeUseCase: GetHoroscopeUseCase
 
-    private lateinit var horoscopeViewModel: HoroscopeViewModel
+    private lateinit var horoscopeResultViewModel: HoroscopeResultViewModel
 
     @get:Rule
     var rule: InstantTaskExecutorRule = InstantTaskExecutorRule()
@@ -30,7 +29,7 @@ class HoroscopeViewModelTest {
     @Before
     fun onBefore() {
         MockKAnnotations.init(this)
-        horoscopeViewModel = HoroscopeViewModel(getHoroscopeUseCase)
+        horoscopeResultViewModel = HoroscopeResultViewModel(getHoroscopeUseCase)
         Dispatchers.setMain(Dispatchers.Unconfined)
     }
 
@@ -45,7 +44,7 @@ class HoroscopeViewModelTest {
 
         coEvery { getHoroscopeUseCase("Leo") } returns horoscope
 
-        horoscopeViewModel.getHoroscope("Leo")
+        horoscopeResultViewModel.getHoroscope("Leo")
 
         //TODO Search how to test Event wrapper.
         //assert(horoscopeViewModel.horoscopeLiveData.value == Event<HoroscopeAPIResponseModel("Leo", "2022-08-03", "Bla Bla")>)

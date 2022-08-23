@@ -20,9 +20,6 @@
         android:label="fragment_zodiac_result"
         tools:layout="@layout/fragment_zodiac_result" >
         <argument
-            android:name="horoscope"
-            app:argType="string" />
-        <argument
             android:name="sign"
             app:argType="string" />
         <argument

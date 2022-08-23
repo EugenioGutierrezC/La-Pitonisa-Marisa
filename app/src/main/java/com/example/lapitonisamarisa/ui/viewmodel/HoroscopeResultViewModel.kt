@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HoroscopeViewModel @Inject constructor(
+class HoroscopeResultViewModel @Inject constructor(
     private val getHoroscopeUseCase: GetHoroscopeUseCase
 ) : ViewModel() {
 
@@ -21,7 +21,6 @@ class HoroscopeViewModel @Inject constructor(
     val isLoading = MutableLiveData<Boolean>()
     val popUpLaunch = MutableLiveData<Event<String>>()
 
-    //TODO Relocate this fuction in HoroscopeResultViewModel.
     fun getHoroscope(sign: String) {
         viewModelScope.launch {
             try {
