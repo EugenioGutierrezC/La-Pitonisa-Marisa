@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blackTransparent">#88000000</color>
+    <color name="loading_background_shimmer">#C9C9C9</color>
+    <color name="loading_shimmer_highlight">#D1D1D1</color>
 </resources>

@@ -36,9 +36,11 @@ class HoroscopeResultFragment : Fragment() {
         loadScreen()
         executeHoroscopeService()
 
-        //TODO replace progressbar for shimmer https://github.com/facebook/shimmer-android
         horoscopeResultViewModel.isLoading.observe(viewLifecycleOwner, Observer {
-            binding.loadingBar.isVisible = it
+            binding.cvTitleContentLoading.isVisible = it
+            binding.cvZodiacLoading.isVisible = it
+            binding.cvTitleContent.isVisible = !it
+            binding.cvZodiac.isVisible = !it
         })
 
         horoscopeResultViewModel.horoscopeLiveData.observe(viewLifecycleOwner, Observer {

@@ -79,6 +79,9 @@ dependencies {
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
 
+    def shimmer = "0.5.0"
+    implementation "com.facebook.shimmer:shimmer:$shimmer"
+
     testImplementation 'junit:junit:4.+'
     testImplementation "io.mockk:mockk:1.12.2"
     testImplementation "androidx.arch.core:core-testing:2.1.0"
